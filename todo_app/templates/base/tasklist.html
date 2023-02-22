@@ -1,4 +1,4 @@
-{% extends 'base/main.html' %}
+{% extends 'base/index.html' %}
 {% block content %}
 
 <div class="header-bar">
@@ -26,15 +26,15 @@
         {% if tasks.complete %}
         <div class="task-title">
             <div class="task-complete-icon"></div>
-            <i><s><a href="{% url 'task-update' tasks.id%}">{{tasks.title}}</a></s></i>
+            <s><a href="{% url 'task-update' tasks.id%}">{{tasks.title}}</a></s>
         </div>
-        <a class="delete-link" href="{% url 'task-delete' tasks.id%}">Delete</a>
+        <a class="fa fa-trash" style="font-size:24px;color: red" href="{% url 'task-delete' tasks.id%}">Delete</a>
         {% else %}
         <div class="task-title">
             <div class="task-incomplete-icon"></div>
             <a href="{% url 'task-update' tasks.id%}">{{tasks.title}}</a>
         </div>
-        <a class="fa fa-trash" href="{% url 'task-delete' tasks.id%}"></a>
+        <a class="fa fa-trash" style="font-size:24px;color: red" href="{% url 'task-delete' tasks.id%}"></a>
         {% endif %}
     </div>
     {% empty %}
